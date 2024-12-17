@@ -135,7 +135,7 @@ def output(user_text, sim, user_time):
             # Читаем существующий файл
             df = pd.read_csv('table.csv')
             # Добавляем новую строку с данными
-            df.loc[len(df)] = [name, len(user_text), user_time, int(sim * 100), datetime.today()]
+            df.loc[len(df)] = [name, len(user_text), round(user_time, 2), int(sim * 100), datetime.today()]
             # Сохраняем обновленный DataFrame в файл
             df.to_csv('table.csv', index=False)
             df.to_excel("table.xlsx", index=False, engine='openpyxl')
